@@ -1,24 +1,25 @@
 ﻿using ConsoleTableExt;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DrinksApp_Http
 {
     internal class TableVisualisationEngine
     {
-        internal void DisplayDataInTable(List<object> dataList, string dataType)
+        public static void DisplayTable<T>(List<T> tableData, [AllowNull] string tableName) where T: class 
         {
+            Console.Clear();
+
+            if (tableName == null) tableName = "";
+
+            Console.WriteLine("\n");
+
             ConsoleTableBuilder
-                .From(dataList)
-                .WithColumn(dataType)
+                .From(tableData)
+                .WithColumn(tableName)
                 .WithFormat(ConsoleTableBuilderFormat.Alternative)
-                .ExportAndWriteLine();
-        }
-        internal void DisplayDataInTable(List<List<object>> dataList, string dataType)
-        {
-            ConsoleTableBuilder
-                .From(dataList)
-                .WithColumn("Number", dataType)
-                .WithFormat(ConsoleTableBuilderFormat.Alternative)
-                .ExportAndWriteLine();
+                .ExportAndWriteLine(TableAligntment.Center);
+
+            Console.WriteLine("\n");
         }
     }
 }

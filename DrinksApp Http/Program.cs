@@ -9,10 +9,10 @@ namespace DrinksApp_Http
 {
     public class Program
     {
-
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
-            await HttpManager.run();
+            InputController inputController = new InputController();
+            inputController.InputGetCategories();
         }
     }
 }

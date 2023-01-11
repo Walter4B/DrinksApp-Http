@@ -8,31 +8,33 @@ namespace DrinksApp_Http
 {
     internal class Validator
     {
-        OutputController outputController = new OutputController();
-
-        internal bool ValidateInt(string userInput, int numberOfElements)
+        internal static bool IsStringValid(string stringInput)
         {
-            if (string.IsNullOrEmpty(userInput) || !int.TryParse(userInput, out _))
+            if (String.IsNullOrEmpty(stringInput))
+            {
+                return false;
+            }
+
+            foreach (char c in stringInput)
+            {
+                if (!Char.IsLetter(c) && c != '/' && c != ' ')
+                    return false;
+            }
+
+            return true;
+        }
+
+        public static bool IsIdValid(string userInput)
+        {
+            OutputController outputController = new OutputController();
+
+            if (String.IsNullOrEmpty(userInput) || !int.TryParse(userInput, out _))
             {
                 outputController.DispalyMessage("Not a number, please try again.");
                 return false;
             }
-            else
-            {
-                return IsInRange(Convert.ToInt32(userInput), numberOfElements);
-            }
-        }
-        internal bool IsInRange(int input, int numberOfElements)
-        {
-            if (input <= numberOfElements && input > 0)
-            {
-                return true;
-            }
-            else
-            {
-                outputController.DispalyMessage("Out of Range, please try again.");
-                return false;
-            }
+
+            return true;
         }
     }
 }
