@@ -2,7 +2,7 @@
 
 Fourth console application in a series for learning .net. 
 
-Application is meant for flashcard studying
+Application pulls data from a third party api and presents it in the console
 
 ## Requirements: 
  - [x] You were hired by restaurant to create a solution for their drinks menu.
@@ -13,32 +13,25 @@ Application is meant for flashcard studying
  - [x] When the users visualise the drink detail, there shouldn't be any properties with empty values
 
 ## Features
-- SQL connection
-  - The program uses a SQL connection to store and read information.
-  - If database or table do not exist they will be crated on startup.
-
 - Console main menu
+  - When opened app pulls category data from the api and shows it
   - ![MainMenu](Images/MainMenu.PNG)
 
-- Edit flashcards
+- Category menu
+  - When a category is chosen all drinks belonging to that category are pulled from the api and shown in a list
   - ![EditMenu](Images/DrinksMenu.PNG)
-  - User can crate a new stack of cards
 
-- Study
-  - User has option to list all previus study session or start a new study session
+- Information about the drink
+  - When a specific drink from a previous list is chosen app pulls all information about the drink and shows it to the user
   - ![Study](Images/DrinksInfo.PNG)
-  - Image shows english study session. Card shows 1 on one side and answer is one as written below 
 
-- Display reports
-  -
-
-- Reporting is done for all the tables with different information, depending on request
+- Reporting is done for all the tables with different information
   - "ConsoleTableExt" library was used for table display 
 
 ## Tech stack:
-- Sql Server
-- Sql data reader
-- SQL
+- ConsoleTableExt
+- Newtonsoft.Json
+- RestSharp
 - .net 6.0
 
 Special thanks to [Cappuccinocodes](https://github.com/cappuccinocodes) for help and advice.
