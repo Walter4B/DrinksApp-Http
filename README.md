@@ -13,11 +13,11 @@ Application pulls data from a third party api and presents it in the console
  - [x] When the users visualise the drink detail, there shouldn't be any properties with empty values
 
 ## Features
-- Console main menu
+- Category Menu
   - When opened app pulls category data from the api and shows it
   - ![MainMenu](Images/MainMenu.PNG)
 
-- Category menu
+- Drinks menu
   - When a category is chosen all drinks belonging to that category are pulled from the api and shown in a list
   - ![EditMenu](Images/DrinksMenu.PNG)
 
